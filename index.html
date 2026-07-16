@@ -3,102 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyDash-Manager</title>
-    <!-- CSS de Leaflet para el Mapa -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- Hoja de estilos principal -->
+    <title>SkyDash-Manager | Iniciar Sesión</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <!-- Encabezado de la aplicación -->
+    <!-- Encabezado con navegación para registro -->
     <header class="marco-superior">
         <div class="marco-superior-contenido">
             <div class="logo-y-titulo">
                 <h1 class="titulo-principal">⛅ SkyDash-Manager</h1>
             </div>
-            <div class="botones-header-derecha">
-                <!-- Botón para alternar entre modo claro y oscuro -->
-                <button id="btn-modo" class="btn-accion">
-                    <span id="icono-modo">🌙</span>
-                    <span id="texto-modo">Modo Oscuro</span>
-                </button>
-                <!-- Botón de Cerrar Sesión (Oculto por defecto) -->
-                <button id="btn-logout" class="btn-accion oculto">
-                    <span>🚪</span>
-                    <span>Salir</span>
-                </button>
-            </div>
+            <nav class="nav-header">
+                <!-- Enlace al nuevo archivo de registro -->
+                <a href="registro.html" class="btn-secundario-link">Crear Cuenta</a>
+            </nav>
         </div>
     </header>
 
     <main id="main-Principal">
-        <!-- ================= SECCIÓN DE LOGIN ================= -->
+        <!-- Sección de Login -->
         <section id="seccion-login" class="contenedor-centrado">
             <div class="tarjeta-login">
                 <h2>Iniciar Sesión</h2>
                 <form id="form-login">
-                    <input type="text" id="usuario" placeholder="Usuario (ej: admin)" required class="input-estandar">
-                    <input type="password" id="password" placeholder="Contraseña (ej: 1234)" required class="input-estandar">
+                    <input type="text" id="usuario" placeholder="Usuario" required class="input-estandar">
+                    <input type="password" id="password" placeholder="Contraseña" required class="input-estandar">
                     <button type="submit" class="btn-primario">Ingresar</button>
                 </form>
-                <!-- Spinner de carga -->
-                <div id="login-spinner" class="spinner oculto"></div>
+                <!-- Mensaje de error oculto por defecto -->
                 <p id="login-error" class="mensaje-error oculto">Credenciales incorrectas.</p>
-            </div>
-        </section>
-
-        <!-- ================= SECCIÓN DASHBOARD (App Principal) ================= -->
-        <section id="seccion-dashboard" class="oculto">
-            
-            <!-- Barra de búsqueda de ubicaciones -->
-            <div class="buscador-form">
-                <input type="text" id="input-busqueda" placeholder="Buscar ciudad (ej. Caracas)..." class="input-estandar">
-                <button id="btn-buscar" class="btn-primario">Buscar</button>
-            </div>
-
-            <div class="grid-dashboard">
-                <!-- Columna Izquierda: Mapa y Favoritos -->
-                <div class="columna-mapa">
-                    <div id="mapa"></div>
-                    <div class="panel-favoritos">
-                        <h3>⭐ Mis Ubicaciones Guardadas</h3>
-                        <ul id="lista-favoritos" class="lista-favoritos">
-                            <!-- Los favoritos se inyectarán aquí mediante JS -->
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Columna Derecha: Clima Actual y Pronóstico -->
-                <div class="columna-clima">
-                    <!-- Panel de Clima Actual -->
-                    <div id="panel-clima-actual" class="tarjeta-clima">
-                        <h2 id="ubicacion-nombre">Seleccione una ubicación</h2>
-                        <button id="btn-guardar-fav" class="btn-secundario oculto">⭐ Guardar en Favoritos</button>
-                        
-                        <div class="clima-detalles">
-                            <div class="clima-icono" id="clima-icono-actual">--</div>
-                            <div class="clima-info">
-                                <p class="temp-actual" id="temp-actual">--°C</p>
-                                <p>Viento: <span id="viento-actual">--</span> km/h</p>
-                                <p>Estado: <span id="estado-actual">--</span></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Panel de Pronóstico 7 días -->
-                    <div class="tarjeta-clima">
-                        <h3>Pronóstico 7 Días</h3>
-                        <div id="pronostico-grid" class="pronostico-grid">
-                            <!-- Tarjetas de pronóstico inyectadas por JS -->
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
 
-    <!-- JS de Leaflet y Script Principal -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="java.js"></script>
+    <!-- Script principal que gestiona el flujo de datos -->
+    <script src="app.js"></script>
 </body>
 </html>

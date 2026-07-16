@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | SkyDash</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header class="marco-superior">
+        <div class="marco-superior-contenido">
+            <h1>Dashboard</h1>
+            <nav>
+                <a href="dashboard.html">Mapa</a> | <a href="privado.html">Perfil</a> | <button id="btn-logout">Salir</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="seccion-dashboard">
+        <div class="grid-dashboard">
+            <div id="mapa"></div>
+            <div class="tarjeta-clima">
+                <h2>Buscador de Clima</h2>
+                <input type="text" id="input-busqueda" class="input-estandar">
+                <button id="btn-buscar" class="btn-primario">Consultar</button>
+                <div id="resultado-clima"></div>
+            </div>
+        </div>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
