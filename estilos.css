@@ -1,0 +1,242 @@
+/* ================= VARIABLES Y TEMATIZACIÓN ================= */
+:root {
+    --color-fondo: #f4f7f6;
+    --color-texto: #333333;
+    --color-tarjeta: #ffffff;
+    --color-primario: #007bff;
+    --color-primario-hover: #0056b3;
+    --color-borde: #dddddd;
+    --color-header: #ffffff;
+}
+
+[data-theme="dark"] {
+    --color-fondo: #121212;
+    --color-texto: #e0e0e0;
+    --color-tarjeta: #1e1e1e;
+    --color-primario: #3399ff;
+    --color-primario-hover: #66b2ff;
+    --color-borde: #333333;
+    --color-header: #1f1f1f;
+}
+
+/* ================= RESET Y BASE ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ================= MARCO SUPERIOR (HEADER) ================= */
+.marco-superior {
+    background-color: var(--color-header);
+    border-bottom: 2px solid var(--color-borde);
+    padding: 15px 20px;
+}
+
+.marco-superior-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.botones-header-derecha {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-accion {
+    background: transparent;
+    border: none;
+    color: var(--color-texto);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ================= UTILIDADES Y COMPONENTES ================= */
+.oculto {
+    display: none !important;
+}
+
+.input-estandar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+}
+
+.btn-primario, .btn-secundario {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-primario {
+    background-color: var(--color-primario);
+}
+
+.btn-primario:hover {
+    background-color: var(--color-primario-hover);
+}
+
+.btn-secundario {
+    background-color: #28a745;
+}
+
+/* ================= LOGIN ================= */
+.contenedor-centrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.tarjeta-login {
+    background-color: var(--color-tarjeta);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.tarjeta-login h2 { margin-bottom: 20px; }
+
+.mensaje-error { color: #ff4d4d; margin-top: 10px; }
+
+/* Spinner de Carga */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: var(--color-primario);
+    animation: girar 1s linear infinite;
+    margin: 15px auto;
+}
+
+[data-theme="dark"] .spinner { border: 4px solid rgba(255,255,255,0.1); border-left-color: var(--color-primario); }
+
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ================= DASHBOARD ================= */
+#seccion-dashboard {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.buscador-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.grid-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Mapa y Favoritos */
+#mapa {
+    height: 400px;
+    border-radius: 8px;
+    border: 2px solid var(--color-borde);
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+/* Marcador personalizado de Leaflet para el Clima */
+.marcador-clima {
+    font-size: 30px;
+    text-align: center;
+    line-height: 1;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+.panel-favoritos {
+    background-color: var(--color-tarjeta);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+}
+
+.lista-favoritos {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.lista-favoritos li {
+    padding: 10px;
+    border-bottom: 1px solid var(--color-borde);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lista-favoritos li:hover {
+    background-color: var(--color-borde);
+}
+
+/* Panel de Clima */
+.tarjeta-clima {
+    background-color: var(--color-tarjeta);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    margin-bottom: 20px;
+}
+
+.clima-detalles {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.clima-icono { font-size: 60px; }
+.temp-actual { font-size: 36px; font-weight: bold; }
+
+/* Pronóstico extendido */
+.pronostico-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.dia-pronostico {
+    background-color: var(--color-fondo);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid var(--color-borde);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-dashboard { grid-template-columns: 1fr; }
+}
